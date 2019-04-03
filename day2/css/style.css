@@ -1,0 +1,107 @@
+@charset "utf-8";
+@import url("https://spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css");
+@import url("./normalize.css");
+
+/* reset */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+/* 기본 스타일 */
+html {
+  font-size: 10px;
+}
+body {
+  color: #181818;
+  font-size: 1.4rem;
+  font-family: "Spoqa Han Sans", sans-serif;
+  font-weight: 400;
+  background: #FFF;
+}
+/* 링크 스타일 */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+/* 숨김 콘텐츠 */
+.readable-hidden {
+  overflow: hidden;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  clip: rect(0, 0, 0, 0);
+}
+/* 플로트 이슈를 해결하기 위한 CSS 모듈 */
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+/* 헤더 */
+.header-wrap {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+.header {
+  position: relative;
+  width: 1200px;
+  margin: 0 auto;
+}
+.logo {
+  position: absolute;
+  top: 33px;
+  left: 0;
+}
+.convenuence {
+  float: right;
+}
+.convenuence li {
+  display: inline;
+}
+/* 메인 */
+.main {
+  padding-top: 90px;
+}
