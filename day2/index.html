@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>LINE Plus Corporation | 홈</title>
   <link rel="stylesheet" href="css/style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://www.youtube.com/iframe_api"></script>
 </head>
 <body>
@@ -12,10 +13,11 @@
       <header class="header">
         <h1 class="logo"><a href="#"><img src="img/logo.png" alt="LINE"></a></h1>
         <ul class="convenuence">
-          <li><a href="#">sitemap</a></li>
+          <li><a href="#" class="sitemap">sitemap</a></li>
           <li>
-            <div class="dropdown active" tabindex="0">
-              <span class="dropdown-text">한국어</span>
+            <div class="dropdown" tabindex="0">
+              <input type="checkbox" id="language" />
+              <label for="language">한국어</label>
               <ul class="dropdown-list">
                 <li><a href="#">English</a></li>
                 <li><a href="#">日本語</a></li>
@@ -30,12 +32,12 @@
         <nav class="navigation">
           <h2 class="readable-hidden">메인메뉴</h2>
           <ul class="menu">
-            <li class="menu-item menu-act" tabindex="0">
-              <span class="menu-item-text">회사소개</span>
+            <li class="menu-item">
+              <a href="#" class="menu-item-text">회사소개</a>
               <ul class="sub-menu">
                 <li class="sub-menu-item"><a href="#">회사소개</a></li>
-                <li class="sub-menu-item" tabindex="0">
-                  <span class="sub-menu-item-text">LINE's Mission</span>
+                <li class="sub-menu-item">
+                  <a href="#" class="sub-menu-item-text">LINE's Mission</a>
                   <ul class="sub-sub-menu">
                     <li><a href="#">MISSION</a></li>
                     <li><a href="#">LINE STYLE</a></li>
@@ -47,23 +49,23 @@
                 <li class="sub-menu-item"><a href="#">LINE 로고 사용 가이드</a></li>
               </ul>
             </li>
-            <li class="menu-item" tabindex="0">
-              <span class="menu-item-text">사업</span>
+            <li class="menu-item">
+              <a href="#" class="menu-item-text">사업</a>
               <ul class="sub-menu">
                 <li class="sub-menu-item"><a href="#">서비스</a></li>
                 <li class="sub-menu-item"><a href="#">캐릭터 사업</a></li>
               </ul>
             </li>
-            <li class="menu-item" tabindex="0">
-              <span class="menu-item-text">홍보</span>
+            <li class="menu-item">
+              <a href="#" class="menu-item-text">홍보</a>
               <ul class="sub-menu">
                 <li class="sub-menu-item"><a href="#">Global News</a></li>
                 <li class="sub-menu-item"><a href="#">기사 및 보도자료</a></li>
                 <li class="sub-menu-item"><a href="#">Blog & SNS</a></li>
               </ul>
             </li>
-            <li class="menu-item" tabindex="0">
-              <span class="menu-item-text">채용</span>
+            <li class="menu-item">
+              <a href="#" class="menu-item-text">채용</a>
               <ul class="sub-menu">
                 <li class="sub-menu-item"><a href="#">일과 사람</a></li>
                 <li class="sub-menu-item"><a href="#">채용공고</a></li>
@@ -75,10 +77,12 @@
     </div>
     <main class="main">
       <div class="visual">
-        <div id="visual-video"></div>
+        <iframe class="visual-video" width="560" height="315" src="https://www.youtube.com/embed/JPpiKm8dKR8?loop=1&autoplay=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         <div class="mission">
-          <p class="mission-text">closing the distance</p>
-          <a href="#">LINE's Mission ></a>
+          <div class="mission-test-wrap">
+            <p class="mission-text">closing the distance</p>
+            <a href="#">LINE's Mission ></a>
+          </div>
         </div>
       </div>
       <section class="news-room">
@@ -213,45 +217,5 @@
       </div>
     </footer>
   </div>
-  <script>
-    /**
-      동영상 부분
-    */
-    function onYouTubeIframeAPIReady() {
-      yplayer = new YT.Player("visual-video", {
-        width: "640",
-        height: "360",
-        videoId: "JPpiKm8dKR8",
-        host: 'http://www.youtube.com',
-        playerVars: {
-          controls: 0,
-          showinfo: 0,
-          modestbranding: 1,
-          wmode: "transparent"
-        },
-        events: {
-          onReady: onPlayerReady,
-          onStateChange: onPlayerStateChange
-        }
-      })
-    }
-    function onPlayerReady(e) {
-      e.target.mute(), e.target.seekTo(0), e.target.playVideo()
-    }
-    function onPlayerStateChange(e) {
-      e.data === YT.PlayerState.ENDED && e.target.seekTo(0)
-    }
-    function mainVisualResize() {
-      var e = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth,
-        t = document.getElementById("mvclip");
-      1920 > e || (t.style.width = e + "px", t.style.height = Math.floor(e / 16 * 9) + "px")
-    }
-    var yplayer, ytag = document.createElement("script");
-    ytag.src = "https://www.youtube.com/iframe_api";
-    var firstScriptTag = document.getElementsByTagName("script")[0];
-    window.onload = firstScriptTag.parentNode.insertBefore(ytag, firstScriptTag);
-    window.addEventListener("load", mainVisualResize);
-    window.addEventListener("resize", mainVisualResize);
-  </script>
 </body>
 </html>
