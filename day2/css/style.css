@@ -57,6 +57,9 @@ body {
   font-weight: 400;
   background: #FFF;
 }
+.point {
+  color: #00B900;
+}
 /* 링크 스타일 */
 a {
   color: inherit;
@@ -152,8 +155,9 @@ a {
   position: fixed;
   top: 0;
   left: 0;
+  z-index: 10;
   width: 100%;
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.95);
 }
 .header {
   position: relative;
@@ -220,10 +224,10 @@ a {
   -ms-transform: translateX(-50%); /* IE 9 */
   -o-transform: translateX(-50%);
   transform: translateX(-50%);
-  /* -webkit-transition: all 0.3s ease-in; 
+  -webkit-transition: all 0.3s ease-in; 
   -moz-transition: all 0.3s ease-in;
   -o-transition: all 0.3s ease-in;
-  transition: all 0.3s ease-in; */
+  transition: all 0.3s ease-in;
 }
 .sub-menu::after {
   content: "";
@@ -300,9 +304,68 @@ a {
   text-transform: uppercase;
 }
 .mission-test-wrap a {
-  padding: 1rem 1.5rem;
+  padding: 0.8rem 2.5rem;
   color: #FFF;
   font-size: 1.8rem;
   border: 1px solid #FFF;
   border-radius: 2.2rem;
+}
+.news-room {
+  position: relative;
+  width: 1200px;
+  margin: 0 auto;
+  padding: 6rem 0;
+}
+.news-room-title {
+  margin-bottom: 2.5rem;
+  font-size: 3.6rem;
+  font-weight: 300;
+  text-transform: uppercase;
+}
+.news-list li {
+  float: left;
+  width: 530px;
+  margin-bottom: 2.5rem;
+}
+.news-list li:nth-child(2n) {
+  float: right;
+}
+.news-list li a {
+  display: block;
+}
+.news-tilte {
+  overflow: hidden;
+  width: 100%;
+  margin-bottom: 0.5rem;
+  font-size: 1.8rem;
+  text-overflow: ellipsis;
+  white-space: nowrap; 
+}
+.news-date, .news-category {
+  font-size: 1.3rem;
+}
+.news-category {
+  position: relative;
+  margin-left: 1.2rem;
+}
+.news-category::after {
+  content: "|";
+  position: absolute;
+  top: 0;
+  left: -10px;
+  color: #838383;
+}
+.more-btn {
+  position: absolute;
+  top: 8rem;
+  right: 0;
+  color: #838383;
+}
+.quick-link-bg {
+  background-color: #F9F9F9;
+}
+.quick-link {
+  width: 1200px;
+  margin: 0 auto;
+  padding: 5rem 0;
 }
