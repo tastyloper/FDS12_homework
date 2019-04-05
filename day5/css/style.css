@@ -45,7 +45,7 @@ table {
 *, *::before, *::after {
   box-sizing: border-box;
 }
-/* 마크업을 위한 스타일 */
+/* 컨테이너 */
 .container {
   background-color: gray;
 }
@@ -53,12 +53,13 @@ table {
   width: 1200px;
   margin: 0 auto;
 }
+/* 헤더 */
 .header-fixed {
   background-color: pink;
 }
 .header {
   height: 90px;
-  background-color: green;
+  background-color: yellow;
 }
 .main {
   background-color: purple;
