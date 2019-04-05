@@ -65,18 +65,15 @@ table {
   background-color: purple;
 }
 .mission {
-  height: 610px;
   background-color: aqua;
 }
 .news-room {
-  height: 500px;
-  background-color: blue;
+  background-color: tomato;
 }
 .quick-link-bg {
   background-color: brown;
 }
 .quick-link {
-  height: 200px;
   background-color: chartreuse;
 }
 .footer {
