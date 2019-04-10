@@ -2,6 +2,10 @@ var dropdownBtn = $('.dropdown-btn');
 var dropdownItem = $('.dropdown a');
 var dropdownCloseBtn = $('.icon-angle-up');
 var dropdownClose = null;
+var menu = $('.menu');
+var item = $('.menu-item:not(.sitemap)');
+var subMenuItem = $('.sub-menu a');
+var menuClose = null;
 
 // 공통 dropdown을 제어하는 스크립트
 dropdownBtn.on('click keyup', function(e) {
@@ -30,5 +34,22 @@ dropdownItem.focusin(function() {
     thisEl.parents('.dropdown').removeClass('dropdown-act');
     thisEl.parents('.dropdown-list').prev().removeClass('icon-angle-up');
     thisEl.parents('.dropdown-list').prev().addClass('icon-angle-down');
+  }, 100)
+});
+
+// 네이게이션을 제어하는 스크립트
+menu.on('mouseout', function() {
+  item.removeClass('menu-act');
+});
+item.on('mouseover focusin', function() {
+  item.removeClass('menu-act');
+  $(this).addClass('menu-act');
+});
+subMenuItem.focusin(function() {
+  clearTimeout(menuClose);
+  menuClose = null;
+}).focusout(function(){
+  menuClose = setTimeout(function () {
+    item.removeClass('menu-act');
   }, 100)
 });

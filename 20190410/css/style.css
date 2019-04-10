@@ -123,6 +123,7 @@ a {
 }
 /* 컨테이너 */
 .container {
+  padding-top: 90px;
   background-color: gray;
 }
 .header, .news-room, .quick-link, .footer {
@@ -131,13 +132,17 @@ a {
 }
 /* 헤더 */
 .header-fixed {
-  background-color: pink;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(255, 255, 255, .95);
 }
 .header {
   position: relative;
   height: 90px;
-  background-color: yellow;
 }
+/* 로고 */
 .logo {
   position: absolute;
   top: 50%;
@@ -162,6 +167,92 @@ a {
   -ms-transform: translateY(-50%); /* IE 9 */
   -o-transform: translateY(-50%);
   transform: translateY(-50%);
+}
+/* 네비게이션 */
+.navigation {
+  padding-left: 20.2rem;
+}
+.menu {
+  display: inline-block;
+  width: 870px;
+}
+.menu-item {
+  display: inline-block;
+  position: relative;
+  padding: 0 2.5rem;
+}
+.menu-item a:hover,
+.menu-item a:focus {
+  color: #00B900;
+}
+.menu-item::after {
+  content: "";
+  position: fixed;
+  top: 90px;
+  right: 0;
+  left: 0;
+  z-index: -1;
+  height: 0;
+  background-color: rgba(240, 240, 240, 0.95);
+  -webkit-transition: all 0.3s ease; 
+  -moz-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.menu-item.menu-act::after {
+  height: 84px;
+}
+.menu-item:first-child.menu-act::after {
+  height: 181px;
+}
+.menu-item-text {
+  display: block;
+  padding: 3.15rem 0;
+  font-size: 1.8rem;
+}
+.sub-menu {
+  overflow: hidden;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  height: 0;
+  -webkit-transform: translateX(-50%); /* Chrome, Safari, Opera */
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%); /* IE 9 */
+  -o-transform: translateX(-50%);
+  transform: translateX(-50%);
+  -webkit-transition: all 0.3s ease; 
+  -moz-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+.menu-item.menu-act .sub-menu {
+  height: auto;
+  padding: 3rem 0;
+}
+.sub-menu-item {
+  display: inline-block;
+  position: relative;
+  margin: 0 8px;
+  font-size: 1.6rem;
+  vertical-align: text-top;
+  white-space: nowrap;
+}
+.sub-sub-menu {
+  position: relative;
+  padding-top: 1rem;
+}
+.sub-sub-menu li {
+  margin-bottom: 5px;
+  color: #838383;
+}
+.sitemap {
+  float: right;
+}
+.sitemap a {
+  color: #ADADAD;
+  text-transform: uppercase;
 }
 .main {
   background-color: purple;
