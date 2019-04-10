@@ -1,6 +1,7 @@
 @charset "utf-8";
 @import url("https://spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css");
-@import url("./normalize.css");
+@import url("fontello.css");
+@import url("normalize.css");
 
 /* reset */
 html, body, div, span, applet, object, iframe,
@@ -71,6 +72,55 @@ a {
   margin: -1px;
   clip: rect(0, 0, 0, 0);
 }
+/* dropdown */
+.dropdown {
+  position: relative;
+  font-size: 1.5rem;
+}
+.dropdown-btn {
+  position: relative;
+  min-width: 130px;
+  padding: 10px 20px;
+  color: #8D8D8D;
+  text-align: left;
+  background-color: #FFF;
+  border: 1px solid #C8C8C8;
+  border-radius: 25px;
+  cursor: pointer;
+}
+.dropdown-btn:before {
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  -webkit-transform: translateY(-50%); /* Chrome, Safari, Opera */
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%); /* IE 9 */
+  -o-transform: translateY(-50%);
+  transform: translateY(-50%);
+  z-index: 1;
+}
+.dropdown-list {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 5px 0;
+  color: #8D8D8D;
+  border: 1px solid #C8C8C8;
+  border-radius: 20px;
+  background-color: #FFF;
+}
+.dropdown-act .dropdown-list {
+  display: block;
+}
+.dropdown-list li {
+  margin-bottom: 5px;
+}
+.dropdown-list li a {
+  display: block;
+  padding: 1px 20px;
+}
 /* 컨테이너 */
 .container {
   background-color: gray;
@@ -97,11 +147,21 @@ a {
   -ms-transform: translateY(-50%); /* IE 9 */
   -o-transform: translateY(-50%);
   transform: translateY(-50%);
-  background-color: blue;
 }
 .logo img {
   display: block;
   width: 70px;
+}
+/* 언어 버튼 */
+.language {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  -webkit-transform: translateY(-50%); /* Chrome, Safari, Opera */
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%); /* IE 9 */
+  -o-transform: translateY(-50%);
+  transform: translateY(-50%);
 }
 .main {
   background-color: purple;
