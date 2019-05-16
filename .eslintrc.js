@@ -12,7 +12,7 @@ module.exports = {
       // 0 "off", 1 "warn" 2 "error"
       "no-console": 0,
       "no-plusplus": 0,
-      "no-var": 0,
+      "no-var": 2,
       "var-on-top": 0,
       "quotes": [ 2, "single" ],
       "no-underscore-dangle": 1,

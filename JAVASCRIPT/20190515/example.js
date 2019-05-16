@@ -9,7 +9,7 @@
 //   return result;
 // }
 
-// // 삼항 연산자
+// 삼항 연산자
 function evenOrOdd(num) {
   return (num % 2 === 0) ? 'Even' : 'Odd';
 }
