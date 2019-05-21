@@ -5,7 +5,18 @@
  */
 
 function uniq(array) {
+  // forEach
+  // let uniqArr = [];
+  // array.forEach(val => {
+  //   if (!uniqArr.includes(val)) uniqArr[uniqArr.length] = val;
+  // });
+  // return uniqArr;
 
+  // reduce
+  return array.reduce((pre, val) => {
+    if (!pre.includes(val)) pre[pre.length] = val;
+    return pre;
+  }, []);
 }
 
 console.log(uniq([2, 1, 2, 3, 4, 3, 4])); // [ 2, 1, 3, 4 ]

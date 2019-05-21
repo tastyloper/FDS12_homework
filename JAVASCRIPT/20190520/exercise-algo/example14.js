@@ -7,7 +7,11 @@
  */
 
 function sumDivisor(num) {
-
+  const divisor = [];
+  for (let i = 1; i <= num; i++) {
+    if (num % i === 0) divisor[divisor.length] = i;
+  }
+  return divisor;
 }
 
 console.log(sumDivisor(12)); // 28

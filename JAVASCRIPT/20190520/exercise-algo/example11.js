@@ -6,7 +6,7 @@
  */
 
 function checkPalindrom(str) {
-  return [...str] === [...str].reverse();
+  return str === [...str].reverse().join('');
 }
 
 console.log(checkPalindrom('dad')); // true

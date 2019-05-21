@@ -7,7 +7,11 @@
  */
 
 function fibonacci(n) {
+  if (n <= 1) return 1;
 
+  var res = n;
+  while (--n) res *= (n - 1);
+  return res;
 }
 
 console.log(fibonacci(2)); // 1

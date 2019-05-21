@@ -8,7 +8,19 @@
  */
 
 function numberOfPrime(n) {
-
+  const primeNumber = [];
+  for (let i = 2; i <= n; i++) {
+    let count = 0;
+    for (let j = 2; j < i; j++) {
+      if (i % j === 0) {
+        count += 1;
+      }
+    }
+    if (count === 0) {
+      primeNumber[primeNumber.length] = i;
+    }
+  }
+  return primeNumber.length;
 }
 
 console.log(numberOfPrime(10)); // 4
