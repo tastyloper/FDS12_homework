@@ -35,9 +35,11 @@
       if (e.target.checked) {
         target.style.textDecoration = 'line-through';
         target.style.color = '#F00';
+        e.target.setAttribute('checked', 'checked');
       } else {
         target.style.textDecoration = 'none';
         target.style.color = '#000';
+        e.target.removeAttribute('checked');
       }
     });
   </script>
