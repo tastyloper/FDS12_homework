@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Ajax</title>
+</head>
+<body>
+  <pre class="result"></pre>
+  <script>
+    const $result = document.querySelector('.result');
+
+    const render = (content) => { $result.innerHTML = JSON.stringify(content, null, 2); };
+    const ajax = (method, url, callback, payload) => {
+      const xhr = new XMLHttpRequest();
+      xhr.open(method, url);
+      xhr.setRequestHeader('Content-Type', 'application/json');
+      xhr.send(JSON.stringify(payload));
+      xhr.onreadystatechange = () => {
+        if (xhr.readyState !== XMLHttpRequest.DONE) return;
+        if (xhr.status >= 200 && xhr.status < 400) {
+          callback(JSON.parse(xhr.response));
+        } else {
+          console.error('error');
+        }
+      };
+    };
+
+    // GET all
+    ajax('GET', 'http://localhost:3000/todos/', render);
+
+    // GET by id
+    // ajax('GET', 'http://localhost:3000/todos/1', render);
+
+    // POST
+    // ajax('POST', 'http://localhost:3000/todos/', render, {
+    //   id: 4, content: 'Angular', completed: false
+    // });
+
+    // PUT by id로 id의 해당하는 모든 데이터 변경
+    // ajax('PUT', 'http://localhost:3000/todos/4', render, {
+    //   id: 4, content: 'React', completed: false
+    // });
+
+    // PATCH by id로 일부 데이터 변경
+    // ajax('PATCH', 'http://localhost:3000/todos/4', render, {
+    //   content: 'Angular'
+    // });
+
+    // DELETE by id
+    // ajax('DELETE', 'http://localhost:3000/todos/4', render);
+  </script>
+</body>
+</html>

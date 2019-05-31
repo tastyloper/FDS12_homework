@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Promise</title>
+</head>
+<body>
+  <pre class="result"></pre>
+  <script>
+    const $result = document.querySelector('.result');
+
+    const render = (content) => { $result.innerHTML = JSON.stringify(content, null, 2); };
+
+    const promiseAjax = (method, url, payload) => new Promise((resolve, reject) => {
+      const xhr = new XMLHttpRequest();
+      xhr.open(method, url);
+      xhr.setRequestHeader('Content-Type', 'application/json');
+      xhr.send(JSON.stringify(payload));
+
+      xhr.onreadystatechange = () => {
+        if (xhr.readyState !== XMLHttpRequest.DONE) return;
+        if (xhr.status >= 200 && xhr.status < 400) {
+          resolve(JSON.parse(xhr.response));
+        } else {
+          reject(xhr.status);
+        }
+      };
+    });
+
+    // GET all
+    promiseAjax('GET', 'http://localhost:3000/todos/')
+      .then(render)
+      .catch(console.error);
+    
+    // GET by id
+    // promiseAjax('GET', 'http://localhost:3000/todos/1')
+    //   .then(render)
+    //   .catch(console.error);
+
+    // POST
+    // promiseAjax('POST', 'http://localhost:3000/todos/', { id: 4, content: 'Angular', completed: false })
+    //   .then(render)
+    //   .catch(console.error);
+
+    // PUT by id로 id의 해당하는 모든 데이터 변경
+    // promiseAjax('PUT', 'http://localhost:3000/todos/4', { id: 4, content: 'React', completed: false })
+    //   .then(render)
+    //   .catch(console.error);
+
+    // PATCH by id로 일부 데이터 변경
+    // promiseAjax('PATCH', 'http://localhost:3000/todos/4', { content: 'Angular' })
+    //   .then(render)
+    //   .catch(console.error);
+
+    // DELETE by id
+    // promiseAjax('DELETE', 'http://localhost:3000/todos/4')
+    //   .then(render)
+    //   .catch(console.error);
+  </script>
+</body>
+</html>

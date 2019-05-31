@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Async / Await</title>
+</head>
+<body>
+  <pre class="result"></pre>
+  <script>
+    const $result = document.querySelector('.result');
+
+    const render = (content) => { $result.innerHTML = JSON.stringify(content, null, 2); };
+
+    // GET all
+    (async function () {
+      const res = await fetch('http://localhost:3000/todos/');
+      const todos = await res.json();
+      render(todos);
+    }());
+
+    // GET by id
+    // (async function () {
+    //   const res = await fetch('http://localhost:3000/todos/1');
+    //   const todos = await res.json();
+    //   render(todos);
+    // }());
+
+    // POST
+    // (async function () {
+    //   const res = await fetch('http://localhost:3000/todos', {
+    //     method: 'POST',
+    //     headers: { 'Content-Type': 'application/json' },
+    //     body: JSON.stringify({ id: 4, content: 'Angular', completed: false })
+    //   });
+    //   const todos = await res.json();
+    //   render(todos);
+    // }());
+
+    // PUT by id로 id의 해당하는 모든 데이터 변경
+    // (async function () {
+    //   const res = await fetch('http://localhost:3000/todos/4', {
+    //     method: 'PUT',
+    //     headers: { 'Content-Type': 'application/json' },
+    //     body: JSON.stringify({ id: 4, content: 'React', completed: false })
+    //   });
+    //   const todos = await res.json();
+    //   render(todos);
+    // }());
+
+    // PATCH by id로 일부 데이터 변경
+    // (async function () {
+    //   const res = await fetch('http://localhost:3000/todos/4', {
+    //     method: 'PATCH',
+    //     headers: { 'Content-Type': 'application/json' },
+    //     body: JSON.stringify({ content: 'Angular' })
+    //   });
+    //   const todos = await res.json();
+    //   render(todos);
+    // }());
+
+    // DELETE by id
+    // (async function () {
+    //   const res = await fetch('http://localhost:3000/todos/4', {
+    //     method: 'DELETE'
+    //   });
+    //   const todos = await res.json();
+    //   render(todos);
+    // }());
+  </script>
+</body>
+</html>
